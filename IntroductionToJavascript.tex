@@ -1,5 +1,7 @@
 \documentclass {article}
 
+\usepackage{graphicx}
+
 \title {Introduction to JavaScript}
 
 
@@ -13,10 +15,16 @@
 	\item Created at Netscape
 	\item Originally written in 1995 by Brandon Eich
 	\item Called JavaScript to entice Java developers to try it
-	\item Microsoft reverse engineered the language for integration into Internet Explorer
+	\item Microsoft reverse engineered the language for integration into Internet Explorertext
 	\item Become ECMA Script in 1997 and is when Netscape lost control. 
 \end{itemize}
 
+
+\section{Coding Standards}
+	\subsection{JsLint}
+		Before programming download and install JSLint.  There is an addon to Visual Studio under: 
+		
+		\includegraphics[scale=.25]{JsLintAddOn.png}
 
 \section{Statement Endings}
 	\subsection{Semicolons}
@@ -38,10 +46,14 @@
 			\item 0 == '0' //true
 		\end{itemize}
 
+		\n
+
 		\begin{itemize}
 			\item false == 'false' //false
 			\item false == '0' //true
 		\end{itemize}
+
+		\n
 
 		\begin{itemize}
 			\item false == undefined //false
@@ -61,6 +73,30 @@
 	\end{itemize}
 
 
+\section{Primitive Types}
+	\subsection{Strings}
+			\subsection{Escape Characters}
+
+			\begin{center}
+			\begin{tabular} {| l |p{5cm}|}
+			
+				\textbackslash{b} & Backspace \\
+				\textbackslash{t} & Tab (horizontal) \\
+				\textbackslash{n} & Linefeed (newline) \\
+				\textbackslash{v} & Tab (vertical) \\
+				\textbackslash{f} & Form feed  \\
+				\textbackslash{r} & Carriage return        \\
+				\textbackslash{"} & Double quote           \\
+				\textbackslash{'} & Single quote           \\
+				\textbackslash{}\textbackslash{} & Backslash              \\
+
+			\end{tabular}
+			\end{center}
+\subsection{number}
+	All numbers in JavaScript are 64-bit floating point numbers.
+\subsection {undefined}
+\subsection {null}
+
 
 \section{Objects}
 	\subsection {Reference Types}
@@ -74,12 +110,14 @@
 		\end{itemize}		
 
 	\subsection{Arrays}
-		\subsection {Creating an Array}
+		\subsubsection {Creating an Array}
 			\begin{itemize}
 				\item Literal Notation: var arr = [];
 				\item Function: var o = new Array();
 			\end{itemize}
 	
+	
+
 			
 
 \end{document}
