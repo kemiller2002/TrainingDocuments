@@ -3,6 +3,8 @@
 \usepackage{graphicx}
 \usepackage{listings}
 \usepackage{color}
+\usepackage{verbatim}
+\usepackage{hyperref}
 
 \definecolor{lightgray}{rgb}{.9,.9,.9}
 \definecolor{darkgray}{rgb}{.4,.4,.4}
@@ -98,12 +100,8 @@
 		}
 	\end{lstlisting}
 
-
 	They both create usable functions, but the first has interpreter validation points built in.  With the second example, JavaScript code cannot call a function assigned to a variable until the variable has been instantiated and assigned the function.  
 It must precede any code calling it.  In the first approach, it can exist anywhere in the program.  JavaScript will parse all programs and load the functions into memory before running code.  
-
-
-
 
 
 \section{Statement Endings}
@@ -135,6 +133,8 @@ It must precede any code calling it.  In the first approach, it can exist anywhe
 
 			}
 		\end{lstlisting}
+	In JavaScript functions can return undefined so {\bf return;} or {\bf return (carriage return)} is valid, so the second function is legal and returns undefined even though the author intended a new object to be returned instead.
+
 		
 \section{Operators}
 	\subsection{=== and !==}
@@ -232,7 +232,8 @@ null == undefined //true
 			\end{tabular}
 			\end{center}
 \subsection{Numbers}
-	All numbers in JavaScript are 64-bit floating point numbers.  There is no such concept as integer division.  So : 
+	All numbers in JavaScript are 64-bit floating point numbers.  There is no such concept as integer division.  So :  "13 / 3" does not equal 4 but 4.333.... instead.
+
 \subsection {undefined}
 	There are three undefined "types" in Javascript 
 	\begin{itemize}
@@ -264,7 +265,27 @@ null == undefined //true
 			\end{itemize}
 	
 	
+\section{Script Block}
+	In an HTML, page each script is a different JavaScript program.  They still share a global namespace {\bf window}, but the failure of one does not affect the other (provided that the second program doesn't rely on parts that weren't executed in the first program due to the failure.)
 
-			
+\begin{lstlisting}
+<script>
+    my_x = "TEST";
+
+    throw "example";
+
+    function exampleFunction() {
+        var myVariable = "";
+
+        alert(myVariable);
+    }
+
+    exampleFunction();
+</script>
+<script>
+    alert(my_x);
+</script>
+\end{lstlisting}
+\url{http://jsfiddle.net/X3VdC/1/}
 
 \end{document}
