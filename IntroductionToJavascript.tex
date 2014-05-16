@@ -79,13 +79,63 @@
 			}
 		\end{lstlisting}	
 
+		JavaScript sees a carriage return as a statement ending
+
+\section {Functions}
+	There are two ways of creating a function:
+
+	\begin{lstlisting}
+		function myName (){
+			//your code here
+		}
+	\end{lstlisting}
+
+	and 
+
+	\begin{lstlisting}
+		var myName = function (){
+			//your code here
+		}
+	\end{lstlisting}
+
+
+	They both create usable functions, but the first has interpreter validation points built in.  With the second example, JavaScript code cannot call a function assigned to a variable until the variable has been instantiated and assigned the function.  
+It must precede any code calling it.  In the first approach, it can exist anywhere in the program.  JavaScript will parse all programs and load the functions into memory before running code.  
+
+
+
+
+
 \section{Statement Endings}
 	\subsection{Semicolons}
 		This is the optimal way of ending a statement.  Always use this.
 	\subsection {Carriage Return}
 		A carriage return will end a statement.  This happens by JavaScript inserting a semicolon when it encounters an error.  If this corrects the error, then JavaScript assumes that not having a semicolon was the cause and continues on. 
+	\subsubsection {Return Statements With Carriage Returns}
+		Since JavaScript will accept a carriage return as a statement ending the two examaples return different results: 
+		\begin{lstlisting}
+			function foo () {
 
+				return {
+					personId:1,
+					personName:"Steve"
+				};
 
+			}
+		\end{lstlisting}
+		and
+		\begin{lstlisting}
+			function foo () {
+
+				return 
+				{
+					personId:1,
+					personName:"Steve"
+				};
+
+			}
+		\end{lstlisting}
+		
 \section{Operators}
 	\subsection{=== and !==}
 		This is the actual comparison operator.  This acts like == in other langauges.
@@ -139,6 +189,19 @@ null == undefined //true
 		\end{itemize}
 
 \section{Variables}
+	There are two ways of declaring variables in JavaScript 
+	/begin{lstlisting}
+		var myVariable = "Foo";
+	/end{lstlisting}
+
+	and 
+
+	/begin{lstlisting}
+		myVariable = "Foo";
+	/end{lstlisting}
+
+
+
 
 \section{Functions}
 	There are 3 ways to create a function: 
@@ -171,6 +234,14 @@ null == undefined //true
 \subsection{Numbers}
 	All numbers in JavaScript are 64-bit floating point numbers.  There is no such concept as integer division.  So : 
 \subsection {undefined}
+	There are three undefined "types" in Javascript 
+	\begin{itemize}
+		\item Undefined (type)
+		\item undefined (value)
+		\item undefined (variable)
+	\end{itemize}
+
+
 \subsection {null}
 
 
