@@ -1,0 +1,80 @@
+\documentclass {amsart}
+
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{verbatim}
+\usepackage{hyperref}
+
+
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{
+   language=JavaScript,
+   %backgroundcolor=\color{lightgray},
+   extendedchars=true,
+   basicstyle=\footnotesize\ttfamily,
+   showstringspaces=false,
+   showspaces=false,
+  % numbers=left,
+   numberstyle=\footnotesize,
+   numbersep=9pt,
+   tabsize=2,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b
+}
+
+
+
+\title{Introduction To C\#}
+
+
+\begin{document}
+
+\maketitle
+
+
+
+\section{Data Types}
+	\subsection{Value Types}
+		\subsubsection{Nullables}
+	\subsection{Reference Types}
+
+\section{Functions}
+	\subsction{Access Modifiers}
+		begin{itemize}
+			\item public 		//Everything can access
+			\item internal 	//Only objects in the same assembly can access; can be used with protected
+			\item protected	//Only child objects can access; can be used with internal
+			\item private		//Only objects within the same class can access
+	\subsection{static}
+	\subsection{Lamda Expressions}
+	\subsection{Func and Action}
+
+
+\section{Classes}
+	\subsection{Polymorphism}	
+
+\section{Namespaces}
+
+\section{Generics}
+
+\section{Unmanaged Resources}
+
+\section{LINQ}
+
+\end{document}

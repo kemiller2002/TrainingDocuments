@@ -1,10 +1,11 @@
-\documentclass {article}
+\documentclass {amsart}
 
 \usepackage{graphicx}
 \usepackage{listings}
 \usepackage{color}
 \usepackage{verbatim}
 \usepackage{hyperref}
+
 
 \definecolor{lightgray}{rgb}{.9,.9,.9}
 \definecolor{darkgray}{rgb}{.4,.4,.4}
@@ -266,7 +267,7 @@ null == undefined //true
 	
 	
 \section{Script Block}
-	In an HTML, page each script is a different JavaScript program.  They still share a global namespace {\bf window}, but the failure of one does not affect the other (provided that the second program doesn't rely on parts that weren't executed in the first program due to the failure.)
+	In an HTML page each script is a different JavaScript program.  They still share a global namespace {\bf window}, but the failure of one does not affect the other (provided that the second program doesn't rely on parts that weren't executed in the first program due to the failure.)
 
 \begin{lstlisting}
 <script>
@@ -287,5 +288,27 @@ null == undefined //true
 </script>
 \end{lstlisting}
 \url{http://jsfiddle.net/X3VdC/1/}
+
+
+\section{JSON : JavaScript Object Notation}
+
+	\subsection {Basic Example}  This shows the main types that can be put in a JSON object. 
+	
+	\begin{lstlisting}
+
+	{
+		"string":"String Example",
+   		"number" : 12345,
+   		"object": {},
+   		"array":[]
+  	}
+
+	\end{lstlisting}
+
+
+\subsection{Helpful Links}
+	\begin{itemize}
+		\item http://jsonfiddle.net/
+	\end{itemize}
 
 \end{document}
