@@ -38,8 +38,6 @@
    captionpos=b
 }
 
-
-
 \title{Introduction To C\#}
 
 
@@ -53,21 +51,30 @@
 	\subsection{Value Types}
 		\subsubsection{Nullables}
 	\subsection{Reference Types}
+	\subsection{Readonly Property}
 
 \section{Functions}
-	\subsction{Access Modifiers}
-		begin{itemize}
+	\subsection{Access Modifiers}
+		\begin{itemize}
 			\item public 		//Everything can access
-			\item internal 	//Only objects in the same assembly can access; can be used with protected
-			\item protected	//Only child objects can access; can be used with internal
-			\item private		//Only objects within the same class can access
-	\subsection{static}
+			\item internal 	//Same assembly objects can access; can be used with protected
+			\item protected	//Child objects can access; can be used with internal
+			\item private		//Objects within the same class can access
+		\end{itemize}
+
+	\subsection{Static}
 	\subsection{Lamda Expressions}
 	\subsection{Func and Action}
 
 
 \section{Classes}
-	\subsection{Polymorphism}	
+	\subsection{Basic Definition}
+	\subsection{Inheritance}
+		\subsubsection{Abstract}
+		\subsubsection{Virtual}
+	\subsection{Polymorphism}
+		\subsubsection{Method Overloading}
+
 
 \section{Namespaces}
 
@@ -76,5 +83,10 @@
 \section{Unmanaged Resources}
 
 \section{LINQ}
+
+\section{Error Handling}
+
+\section{Creating Unit Tests}
+
 
 \end{document}
