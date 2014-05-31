@@ -200,9 +200,26 @@ null == undefined //true
 	/begin{lstlisting}
 		myVariable = "Foo";
 	/end{lstlisting}
+	\subsection{Hoisting}  Always declare variables at the top of a function.  JavaScripts scope declaration is at the function level and not at the branch level.  JavaScript will automatically move the variable declaration to the top of the function if not placed there. For Example: 
+	\begin{lstlisting}
+		function () {
+			if(true === true){
+				var myVariable = "Example";
+			}
+		}
+	\end{lstlisting}
 
+Really becomes: 
 
-
+	\begin{lstlisting}
+		function () {
+			var myVariable; 
+			if(true === true){
+				myVariable = "Example";
+			}
+		}
+	\end{lstlisting}
+"myVariable" is now accessible to the entire function.  
 
 \section{Functions}
 	There are 3 ways to create a function: 
@@ -309,7 +326,13 @@ null == undefined //true
 
 	\subsection{Helpful Links}
 		\begin{itemize}
-			\item http://jsonfiddle.net/
+			\item \url{http://jsonfiddle.net/}
 		\end{itemize}
+
+\section{Frameworks}
+	\subsection{JQuery}
+		\url{http://jquery.com/}
+	\subsection{Underscore}
+		\url{http://underscorejs.org/}
 
 \end{document}

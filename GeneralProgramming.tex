@@ -8,10 +8,14 @@
 
 
 
-\title{General Programming}
+\title{General Programming Principles}
 
 
 \begin{document}
+\maketitle
+
+\includegraphics[scale=6]{GOTO.png}
+
 
 \section{SOLID Principles}
 	\subsection{links}
@@ -20,8 +24,55 @@
 		\end{itemize}
 
 \section{Functional Programming}
+	\subsection{Void} Avoid it.
+		Sometimes methods call for using void.  It's a function that performs a side effect and doesn't explicitly say that it was successful.	
+	\subsection{Parameters}
+		\begin{itemize}
+			\item Ideally, no more than three.  Absolutely, no more than five.
+			\item ref and out.  Avoid using these.  It's better to return a value than modify an existing value.
+			\item Avoid modifying parameters that are passed into a function.  The calling procedure has no idea that it's been changed. 
+		\end{itemize}
+\section{Coding Stlyles}
+	\subsection {Conditionals} when evaulating and returning conditionals
 
+		\begin{verbatim}
+		if(boolean)
+		\end{verbatim}
 
+		and not 
+		
+		\begin{verbatim}
+		if(boolean == true)
+		\end{verbatim} 
+		
+		or 
+		
+		\begin{verbatim}
+		if(boolean != false)
+		\end{verbatim}
+
+		also do not do
+		\begin{verbatim}
+		if(boolean)
+		{
+		     return true;
+		}
+		else
+		{
+		     return false;
+		}
+		\end{verbatim}
+		or
+		\begin{verbatim}
+		return (boolean == true);
+		\end{verbatim}
+
+		
+\section{Exceptions}
+	\subsection{Stack Trace}  Always get the stack trace.
+
+	\includegraphics[scale=.45]{StackTrace.jpg}
+	\subsection{Catching}  Never catch an exception and do nothing with it.  
 
 
 

@@ -10,18 +10,22 @@
 \BOOKMARK [2][-]{subsection.5.1}{5.1. === and !==}{section.5}% 10
 \BOOKMARK [2][-]{subsection.5.2}{5.2. == and !=}{section.5}% 11
 \BOOKMARK [1][-]{section.6}{6. Variables}{}% 12
-\BOOKMARK [1][-]{section.7}{7. Functions}{}% 13
-\BOOKMARK [1][-]{section.8}{8. Primitive Types}{}% 14
-\BOOKMARK [2][-]{subsection.8.1}{8.1. Strings}{section.8}% 15
-\BOOKMARK [2][-]{subsection.8.2}{8.2. Numbers}{section.8}% 16
-\BOOKMARK [2][-]{subsection.8.3}{8.3. undefined}{section.8}% 17
-\BOOKMARK [2][-]{subsection.8.4}{8.4. null}{section.8}% 18
-\BOOKMARK [1][-]{section.9}{9. Objects}{}% 19
-\BOOKMARK [2][-]{subsection.9.1}{9.1. Reference Types}{section.9}% 20
-\BOOKMARK [2][-]{subsection.9.2}{9.2. Creating an Object}{section.9}% 21
-\BOOKMARK [2][-]{subsection.9.3}{9.3. Arrays}{section.9}% 22
-\BOOKMARK [1][-]{section.10}{10. Script Block}{}% 23
-\BOOKMARK [1][-]{section.11}{11. Error Handling}{}% 24
-\BOOKMARK [1][-]{section.12}{12. JSON : JavaScript Object Notation}{}% 25
-\BOOKMARK [2][-]{subsection.12.1}{12.1. Basic Example}{section.12}% 26
-\BOOKMARK [2][-]{subsection.12.2}{12.2. Helpful Links}{section.12}% 27
+\BOOKMARK [2][-]{subsection.6.1}{6.1. Hoisting}{section.6}% 13
+\BOOKMARK [1][-]{section.7}{7. Functions}{}% 14
+\BOOKMARK [1][-]{section.8}{8. Primitive Types}{}% 15
+\BOOKMARK [2][-]{subsection.8.1}{8.1. Strings}{section.8}% 16
+\BOOKMARK [2][-]{subsection.8.2}{8.2. Numbers}{section.8}% 17
+\BOOKMARK [2][-]{subsection.8.3}{8.3. undefined}{section.8}% 18
+\BOOKMARK [2][-]{subsection.8.4}{8.4. null}{section.8}% 19
+\BOOKMARK [1][-]{section.9}{9. Objects}{}% 20
+\BOOKMARK [2][-]{subsection.9.1}{9.1. Reference Types}{section.9}% 21
+\BOOKMARK [2][-]{subsection.9.2}{9.2. Creating an Object}{section.9}% 22
+\BOOKMARK [2][-]{subsection.9.3}{9.3. Arrays}{section.9}% 23
+\BOOKMARK [1][-]{section.10}{10. Script Block}{}% 24
+\BOOKMARK [1][-]{section.11}{11. Error Handling}{}% 25
+\BOOKMARK [1][-]{section.12}{12. JSON : JavaScript Object Notation}{}% 26
+\BOOKMARK [2][-]{subsection.12.1}{12.1. Basic Example}{section.12}% 27
+\BOOKMARK [2][-]{subsection.12.2}{12.2. Helpful Links}{section.12}% 28
+\BOOKMARK [1][-]{section.13}{13. Frameworks}{}% 29
+\BOOKMARK [2][-]{subsection.13.1}{13.1. JQuery}{section.13}% 30
+\BOOKMARK [2][-]{subsection.13.2}{13.2. Underscore}{section.13}% 31
