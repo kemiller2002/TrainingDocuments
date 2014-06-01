@@ -14,7 +14,7 @@
 
 
 \lstdefinelanguage{CSharp}{
-  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break, int, int?, public, class, string, void, using},
   keywordstyle=\color{blue}\bfseries,
   ndkeywords={class, export, boolean, throw, implements, import, this},
   ndkeywordstyle=\color{darkgray}\bfseries,
@@ -78,7 +78,20 @@
 
 		Anything else that is classified as a struct is also a value type. 
 
-		\subsubsection{Nullables} Since Value Types can't be null, Microsoft created nullables to stand in their place when they need to be.  They are represetned by int?, bool?, etc. or Nullable(int) etc.  
+		\subsubsection{Nullables} Since Value Types can't be null, Microsoft created nullables to stand in their place when they need to be.  They are represetned by int?, bool?, etc. or Nullable(int) etc.  In order to use a Nullable you must check to see if the object has a value becore calling the value.  If not, it automatically throw an exception.
+
+		\begin{lstlisting}
+			int? checkValue = null;
+			if(checkValue.HasValue)
+			{
+				Console.WriteLine(checkValue.Value);
+			}
+			else
+			{
+				Console.WriteLine("No value present");
+			}
+		\end{lstlisting}
+
 	\subsection{Reference Types}  Classes instantiate objects, and all objects are references types.  Everything can convert to type Object.  All reference types are pass by reference into functions.  Take the following example: 
 
 	\subsection{Readonly Property}
@@ -92,8 +105,71 @@
 			\item private		//Objects within the same class can access
 		\end{itemize}
 
-	\subsection{Static}
-	\subsection{Lamda Expressions}
+	\subsection{Static}  Static allows methods and functions to exist outsite of an object context . They are attached to a class, and may not interact with instance variables and methods outside of its scope.  
+		\begin{lstlisting}
+
+		using System;
+
+		public class StaticExample 
+		{
+			public static string Capitalize(string toCapitalize)
+			{
+				return toCapitalize.ToUpper();
+			}
+		}
+
+		public class Program
+		{
+			public static void Main()
+			{
+				Console.WriteLine(StaticExample.Capitalize("Make me big"));
+			}
+		}
+
+		\end{lstlisting}
+
+
+	\subsection{Lambda Expressions}  These are a shorthand syntax for creating an anonymous function.  When declared in conjuction with use in a function that accepts a function as a parameter (delegate), the compiler will automatically infer the correct types. 
+	\begin{lstlisting}
+			using System;
+			using System.Collections.Generic;
+			using System.Linq;
+			
+			public class Program
+			{
+				public static void Main()
+				{
+					var numbers = new List<int>(new [] {-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6,7,8});
+			
+					var positiveNumbersWithLamdba = numbers.Where(x=> x > 0);
+			
+					var positiveNumber = numbers.Where(IsPositive);
+					
+					var positiveTotal = positiveNumber.Aggregate<int>(FoldMethod);
+			
+			
+					var positiveTotalWithAgg = positiveNumbersWithLamdba.Aggregate<int>((agg, n)=> agg += n);
+			
+					
+					Console.WriteLine(positiveTotal);
+					
+					Console.WriteLine(positiveTotalWithAgg);
+					
+				}
+			
+				private static bool IsPositive (int number)
+				{
+					return number > 0;
+				}
+				
+				public static int FoldMethod (int accumulator, int number){
+					return accumulator + number;	
+				}
+				
+			}
+		\end{lstlisting}
+
+
 	\subsection{Func and Action}
 
 

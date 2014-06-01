@@ -82,7 +82,7 @@
 			}
 		\end{lstlisting}	
 
-		JavaScript sees a carriage return as a statement ending
+		JavaScript sees a carriage return as a statement ending.
 
 \section {Functions}
 	There are two ways of creating a function:
@@ -235,6 +235,24 @@ Really becomes:
 	\subsection{Variable Length Arguments}  When calling a function, the number of supplied arguments is not enforced.  Missing ones come in as {\bf undefined} and additional ones can be accessed through the {\bf arguments} object. 
 
 	\includegraphics{MoreArgumentsThanSpecified.jpg}
+
+	\begin{lstlisting}
+
+		function MyShowAllTheArguments (aOne, aTwo, aThree){
+			var ii = 0, counter = 0;		
+			alert(arguments.length);
+
+			for(ii = 0; ii < arguments.length; ii++){
+				counter += arguments[ii];
+			}
+
+			alert(counter);
+		}
+
+		MyShowAllTheArguments(1,2,3,4,5,6);
+		MyShowAllTheArguments(1,2);
+
+	\end{lstlisting}
 
 
 \section{Primitive Types}
