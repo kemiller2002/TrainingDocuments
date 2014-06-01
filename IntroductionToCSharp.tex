@@ -6,7 +6,7 @@
 \usepackage{verbatim}
 \usepackage{hyperref}
 \usepackage[T1]{fontenc}
-
+\usepackage{fancyvrb}
 
 
 \definecolor{lightgray}{rgb}{.9,.9,.9}
@@ -110,12 +110,13 @@
 				}
 			}
 		\end{lstlisting}  
-
+		Conwole Output:
 		\begin{verbatim}
 			What the answer is: 42
 			Inside the method: -1
 			What the answer still is: 42
 		\end{verbatim}
+
 
 		\subsubsection{Nullables} Since Value Types can't be null, Microsoft created nullables to stand in their place when they need to be.  They are represetned by {\bf int?}, {\bf bool?}, etc. or {\bf Nullable\textless int\textgreater} \space etc.  In order to use a Nullable you must check to see if the object has a value becore calling the value.  If not, it automatically throw an exception.
 
@@ -310,7 +311,7 @@
 
 \section{Classes}
 	\subsection{Basic Definition}
-	\subsection{Inheritance}
+	\subsection{Inheritance}  C\# allows single inheritance for classes but not structs.  
 		\subsubsection{Virtual and Override}  The virtual keyword indicates that a child class may override a method or property, and that the overridden code will apply when calling methods and properties defined in the parent class. 
 			\begin{lstlisting}
 			using System;
@@ -529,7 +530,15 @@
 			Prime Number Found: 11
 		\end{verbatim}
 
-\section{Unmanaged Resources}
+\section{Garbage Collection}
+	\subsection{Managed Resources} .NET runtime environment will dispose of objects when they fall out of scope of the program's execution threads.  There is no need to set variables to {\bf null}.
+	\subsection{Unmanaged Resources}  Although objects will be eventually disposed, there are several objects which need to have connections to external systems closed before the garbage collector will run and dispose of the object.  Most of these objects implement the interface {\bf IDisposable} which means they have the method {\bf Dispose()}.  C\#  has an enforced call of the {\bf Dispose} method when the {\bf using} construct wraps the object lifetime.  
+	\begin{lstlisting}
+		using (var dbConnectoin = new SqlConnection ()}
+		{
+			dbConnection.UpdateSQL();
+		}//once execution reaches this point, the object has Dispose() called.  This occurs even in the event of an error.  
+	\end{lstlisting}
 
 \section{LINQ}
 

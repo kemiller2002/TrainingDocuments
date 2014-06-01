@@ -31,9 +31,11 @@
 \BOOKMARK [2][-]{subsection.10.1}{10.1. Syntax}{section.10}% 31
 \BOOKMARK [2][-]{subsection.10.2}{10.2. Example}{section.10}% 32
 \BOOKMARK [2][-]{subsection.10.3}{10.3. IEnumerable<T>}{section.10}% 33
-\BOOKMARK [1][-]{section.11}{11. Unmanaged Resources}{}% 34
-\BOOKMARK [1][-]{section.12}{12. LINQ}{}% 35
-\BOOKMARK [1][-]{section.13}{13. Error Handling}{}% 36
-\BOOKMARK [2][-]{subsection.13.1}{13.1. Syntax}{section.13}% 37
-\BOOKMARK [2][-]{subsection.13.2}{13.2. Throw}{section.13}% 38
-\BOOKMARK [1][-]{section.14}{14. Creating Unit Tests}{}% 39
+\BOOKMARK [1][-]{section.11}{11. Garbage Collection}{}% 34
+\BOOKMARK [2][-]{subsection.11.1}{11.1. Managed Resources}{section.11}% 35
+\BOOKMARK [2][-]{subsection.11.2}{11.2. Unmanaged Resources}{section.11}% 36
+\BOOKMARK [1][-]{section.12}{12. LINQ}{}% 37
+\BOOKMARK [1][-]{section.13}{13. Error Handling}{}% 38
+\BOOKMARK [2][-]{subsection.13.1}{13.1. Syntax}{section.13}% 39
+\BOOKMARK [2][-]{subsection.13.2}{13.2. Throw}{section.13}% 40
+\BOOKMARK [1][-]{section.14}{14. Creating Unit Tests}{}% 41
