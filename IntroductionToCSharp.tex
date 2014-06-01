@@ -7,6 +7,7 @@
 \usepackage{hyperref}
 \usepackage[T1]{fontenc}
 \usepackage{fancyvrb}
+\usepackage{verbatimbox}
 
 
 \definecolor{lightgray}{rgb}{.9,.9,.9}
@@ -350,7 +351,7 @@
 		Console Output:
 		\begin{verbatim}I am the child.\end{verbatim}
 
-		\subsubsection{New}  With methods and classes, the new keyword completely replaces a particular method or property in the current class and all children.  The parent classes will still have their original ones called as designed. 
+		\subsubsection{New}  With methods and classes, the {\bf new} keyword completely replaces a particular method or property in the current class and all its children.  The parent classes will still have their original ones called as designed. 
 
 			\begin{lstlisting}
 			using System;
@@ -395,7 +396,47 @@
 		\subsubsection{Sealed} Sealed classes may not be inherited from.  
 
 	\subsection{Polymorphism}
-		\subsubsection{Method Overloading}
+		\subsubsection{Method Overloading}  C\# supports method overloading.  The methods can have different return types, but they must have a different method signature (the parameter listing must be different).  Based on the parameter types, the compiler will determine method fits the parameter signature the closest. 
+	
+		\begin{lstlisting}
+		using System;
+							
+		public class Program
+		{
+			public static void Main()
+			{
+				int theAnswer = 42;
+
+				string str = "I am a string";
+
+				object oTheAnswer = 42;		
+
+				PrintVariable(theAnswer);
+				
+				PrintVariable(str);
+				PrintVariable(oTheAnswer);
+				
+			}
+			
+			
+			public static void PrintVariable (object o)
+			{
+				Console.WriteLine(o.GetType());	
+			}
+			
+			public static void PrintVariable (int i)
+			{
+				Console.WriteLine(i);	
+			}	
+		}
+		\end{lstlisting}
+		Console Output: 
+		\begin{verbatim}
+			42
+			System.String
+			System.Int32
+		\end{verbatim}
+
 	\subsection{Partial Classes}  Classes can span code files provided that all the files are located in the same assembly.  You can have a class span files by declaring the class {\bf partial}.  At compile time, the compiler will find and assemble all the partial classes into one.  There is no runtime difference between a partial and a non-partial class. 
 		\begin{lstlisting}
 			public partial class MyClassPart
@@ -423,7 +464,7 @@
 			using System.Collections;
 		\end{lstlisting}
 
-		\subsubsection {Aliasing} If there are two objects which have the same name, and both namespaces have been imported into the code file, a namespace conflict will occur.  Each class can be referenced by its full name, \emph{namespace.type} or an aliase can be delcared renaming one of the objects to something else in that code file.  
+		\subsubsection {Aliasing} If there are two objects which have the same name, and both namespaces have been imported into the code file, a namespace conflict will occur.  Each class can be referenced by its full name, \emph{namespace.type} or an alias can be delcared renaming one of the objects to something else in that code file.  
 		\begin{lstlisting}
 			using System;
 			using Pan;
@@ -583,7 +624,7 @@
 				throw;
 			}
 		\end{lstlisting}
-	{\bf NOTE:} Using {\bf throw ex;} will reset the stack trace, and the original place where the exception ocurred will be losg.
+	{\bf NOTE:} Using {\bf throw ex;} will reset the stack trace, and the original place where the exception ocurred will be lost.
 		\begin{lstlisting}
 			catch(Exception ex)
 			{
