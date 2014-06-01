@@ -13,10 +13,10 @@
 \definecolor{darkgray}{rgb}{.4,.4,.4}
 \definecolor{purple}{rgb}{0.65, 0.12, 0.82}
 
-
+\definecolor{commentgreen}{rgb}{0,0.3,0}
 
 \lstdefinelanguage{CSharp}{
-  keywords={try,finally, typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break, int, int?, public, class, string, void, using, static},
+  keywords={try,finally, typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break, int, int?, public, class, string, void, using, static, throw, namespace},
   keywordstyle=\color{blue}\bfseries,
   ndkeywords={class, export, boolean, throw, implements, import, this},
   ndkeywordstyle=\color{darkgray}\bfseries,
@@ -24,7 +24,7 @@
   sensitive=false,
   comment=[l]{//},
   morecomment=[s]{/*}{*/},
-  commentstyle=\color{purple}\ttfamily,
+  commentstyle=\color{commentgreen}\ttfamily,
   stringstyle=\color{red}\ttfamily,
   morestring=[b]',
   morestring=[b]"
@@ -32,12 +32,12 @@
 
 \lstset{
    language=CSharp,
-   %backgroundcolor=\color{lightgray},
+   backgroundcolor=\color{lightgray},
    extendedchars=true,
    basicstyle=\footnotesize\ttfamily,
    showstringspaces=false,
    showspaces=false,
-  % numbers=left,
+   numbers=left,
    numberstyle=\footnotesize,
    numbersep=9pt,
    tabsize=2,
@@ -86,7 +86,6 @@
 		\subsection{Pass By Value}  Value types are not pass by reference in C\#. When passed into a method, they will be copied for use in the method.  Altering their value inside a method will not change the value passed in.
 
 		\begin{lstlisting}
-
 			using System;
 								
 			public class Program
@@ -135,7 +134,7 @@
 	\subsection{Reference Types}  Classes instantiate objects, and all objects are references types.  Everything can convert to type Object.  All reference types are pass by reference into functions.  Take the following example: 
 
 	\subsection{Readonly Property}  Class level variables (there are no global variables in C \# although class level variables are commonly referred to as such) may be marked as {\bf readonly}.  Once instantiated, the value is bound to that variable and connot be changed.  Any varaible or property defined as readonly must either be defined on initialization or in the class' constructor.
-\newline
+\linebreak
 
 {\bf NOTE:} Properites inside the bound object may still be changed, even though the variable is set to {\bf readonly}.  For example: 
 
@@ -188,7 +187,6 @@
 
 	\subsection{Static}  Static allows methods and functions to exist outsite of an object context . They are attached to a class, and may not interact with instance variables and methods outside of its scope.  
 		\begin{lstlisting}
-
 		using System;
 
 		public class StaticExample 
@@ -295,7 +293,19 @@
 	
 
 \section{Namespaces}
+	\subsection{Description} Everything in .NET has a name space.  If no namspace expllicitely named for an object, it is given the global namespace for the program.  Namespaces are used to keep classes with the same name from colliding.  Visual Studio will automatically create namespace for each class based on the application name and the folder structure. 
+
+		\begin{lstlisting}
+			namespace Pan.TechnicalSolutions.Bonzai
+			{
+				//everything in this scope will have the same namespace.  
+			}
+		\end{lstlisting}
+
 	\subsection {Using}
+		\subsubsection {Importing}  In order to use an object in C\#.NET, either the object must be referred to by its full name (example String is System.String), or the namespace must be imported with the {\bf using} keyword.  
+		
+
 \section{Interfaces}
 	\subsection{Syntax} The basic syntax is as follows: 
 		\begin{verbatim}
@@ -399,6 +409,46 @@
 			finally{}
 		\end{lstlisting}
 	Both {\bf catch} and {\bf finally} are optional, but one of them must exist.  The {\bf finally} block will always execute, even if there is an exception in the {\bf try} block, and if there is no {\bf catch} block, the exception will be thrown once the {\bf finally} block finishes executing.  The {\bf catch} block will only execute if an exception occurs, and the exception will not bubble up the call stack unless rethrown.  
+		
+	Multiple catches blocks can exist to catch different types of exceptions.  The listing must go from most specific to most general to catch the diffenerent exception types. 
+
+	\begin{lstlisting}
+		catch{Exception ex)
+		{
+			//Because it's first, all exceptions will get caught here.
+		}
+		catch{IOException ioEx)
+		{
+			//will never enter this block. 
+		}
+	\end{lstlisting}
+	
+	Correct catch ordering:
+
+	\begin{lstlisting}
+		catch{IOException ioEx)
+		{
+			//IOException will get caught here
+		}
+		catch{Exception ex)
+		{
+			//all other exceptions will get caught here.
+		}
+	\end{lstlisting}
+	\subsection{Throw}  In order to rethrow and exception, use the {\bf throw} keyword.  
+		\begin{lstlisting}
+			catch(Exception ex)
+			{
+				throw;
+			}
+		\end{lstlisting}
+	{\bf NOTE:} Using {\bf throw ex;} will reset the stack trace, and the original place where the exception ocurred will be losg.
+		\begin{lstlisting}
+			catch(Exception ex)
+			{
+				throw ex;  //STACK TRACE LOST.
+			}
+		\end{lstlisting}
 		
 
 \section{Creating Unit Tests}

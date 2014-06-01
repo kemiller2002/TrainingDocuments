@@ -21,13 +21,15 @@
 \BOOKMARK [1][-]{section.7}{7. Structs}{}% 21
 \BOOKMARK [2][-]{subsection.7.1}{7.1. Basic Definition}{section.7}% 22
 \BOOKMARK [1][-]{section.8}{8. Namespaces}{}% 23
-\BOOKMARK [2][-]{subsection.8.1}{8.1. Using}{section.8}% 24
-\BOOKMARK [1][-]{section.9}{9. Interfaces}{}% 25
-\BOOKMARK [2][-]{subsection.9.1}{9.1. Syntax}{section.9}% 26
-\BOOKMARK [2][-]{subsection.9.2}{9.2. Example}{section.9}% 27
-\BOOKMARK [2][-]{subsection.9.3}{9.3. IEnumerable<T>}{section.9}% 28
-\BOOKMARK [1][-]{section.10}{10. Unmanaged Resources}{}% 29
-\BOOKMARK [1][-]{section.11}{11. LINQ}{}% 30
-\BOOKMARK [1][-]{section.12}{12. Error Handling}{}% 31
-\BOOKMARK [2][-]{subsection.12.1}{12.1. Syntax}{section.12}% 32
-\BOOKMARK [1][-]{section.13}{13. Creating Unit Tests}{}% 33
+\BOOKMARK [2][-]{subsection.8.1}{8.1. Description}{section.8}% 24
+\BOOKMARK [2][-]{subsection.8.2}{8.2. Using}{section.8}% 25
+\BOOKMARK [1][-]{section.9}{9. Interfaces}{}% 26
+\BOOKMARK [2][-]{subsection.9.1}{9.1. Syntax}{section.9}% 27
+\BOOKMARK [2][-]{subsection.9.2}{9.2. Example}{section.9}% 28
+\BOOKMARK [2][-]{subsection.9.3}{9.3. IEnumerable<T>}{section.9}% 29
+\BOOKMARK [1][-]{section.10}{10. Unmanaged Resources}{}% 30
+\BOOKMARK [1][-]{section.11}{11. LINQ}{}% 31
+\BOOKMARK [1][-]{section.12}{12. Error Handling}{}% 32
+\BOOKMARK [2][-]{subsection.12.1}{12.1. Syntax}{section.12}% 33
+\BOOKMARK [2][-]{subsection.12.2}{12.2. Throw}{section.12}% 34
+\BOOKMARK [1][-]{section.13}{13. Creating Unit Tests}{}% 35
