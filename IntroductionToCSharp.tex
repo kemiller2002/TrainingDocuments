@@ -5,6 +5,8 @@
 \usepackage{color}
 \usepackage{verbatim}
 \usepackage{hyperref}
+\usepackage[T1]{fontenc}
+
 
 
 \definecolor{lightgray}{rgb}{.9,.9,.9}
@@ -14,7 +16,7 @@
 
 
 \lstdefinelanguage{CSharp}{
-  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break, int, int?, public, class, string, void, using},
+  keywords={try,finally, typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break, int, int?, public, class, string, void, using},
   keywordstyle=\color{blue}\bfseries,
   ndkeywords={class, export, boolean, throw, implements, import, this},
   ndkeywordstyle=\color{darkgray}\bfseries,
@@ -68,15 +70,24 @@
 			\item float
 			\item int
 			\item long
-			\item sbyte
+			\item \emph{sbyte}*
 			\item short
 			\item struct
-			\item uint
-			\item ulong
-			\item ushort
+			\item \emph{uint}*
+			\item \emph{ulong}
+			\item \emph{ushort}*
 		\end{itemize}
+		Anything else that is classified as a struct is also a value type. \vspace{.5cm}  Value types are not pass by reference in C\#.  When passed into a method, they will be copied for use in the method.  Altering their value inside a method will not change the value passed in.
 
-		Anything else that is classified as a struct is also a value type. 
+		\begin{lstlisting}
+
+			
+
+
+		\end{lstlisting}  
+
+		\emph{*These types are not CLS compliant, and may cause interoperability issue with other languages.  Unless there is a solid reason, they should avoid being used.} 
+
 
 		\subsubsection{Nullables} Since Value Types can't be null, Microsoft created nullables to stand in their place when they need to be.  They are represetned by int?, bool?, etc. or Nullable(int) etc.  In order to use a Nullable you must check to see if the object has a value becore calling the value.  If not, it automatically throw an exception.
 
@@ -128,9 +139,13 @@
 
 		\end{lstlisting}
 
+	\section{Generics}
+		\subsection{Use}  Pre .Net 2.0, there was no real way of sharing methods and properties accross classes which weren't related.  To have similar implementations of the same method, the code had to be duplicated and customized.  For examle, {\bf string[] } and {\bf int[]} are both collections of objects, but they aren't related in terms of inheritance.  It would be beneificial for each to have methods like Sort and Add, but to iimplement them and not break type safety (\url{http://en.wikipedia.org/wiki/Type_safety}) each method would have to implment it's own version, or the method would have to be generalized to take a common base class type such as {\bf System.Object}.  Generics allow classes and structs to have methods and properties which operate on several different types provied that all types which are allowed in the generic satisify the compile time requirements to have those methods and properites interact with them.  
+		\subsection{Syntax}  Generics are specified by the {\bf \textless T\textgreater} next to a type.  For example to create a List of Int: {\bf List\textless int\textgreater}.  
 
-	\subsection{Lambda Expressions}  These are a shorthand syntax for creating an anonymous function.  When declared in conjuction with use in a function that accepts a function as a parameter (delegate), the compiler will automatically infer the correct types. 
-	\begin{lstlisting}
+
+	\section{Lambda Expressions}  These are a shorthand syntax for creating an anonymous function.  When declared in conjuction with use in a function that accepts a function as a parameter (delegate), the compiler will automatically infer the correct types. 
+		\begin{lstlisting}
 			using System;
 			using System.Collections.Generic;
 			using System.Linq;
@@ -170,7 +185,32 @@
 		\end{lstlisting}
 
 
-	\subsection{Func and Action}
+	\subsection{Func\textless  T\textgreater, Action\textless  T\textgreater, and Predicate\textless  T, bool\textgreater} These are the types behind anonymous methods. 
+ {\bf Action \textless  T\textgreater} \space takes at least one argument, and returns nothing. {\bf Func\textless  T\textgreater} always returns something.  {\bf Predicate\textless  T, bool\textgreater} always takes  parameter and returns a bool. 
+
+	\begin{lstlisting}
+			using System;
+			using System.Collections.Generic;
+			using System.Linq;
+			
+			public class Program
+			{
+				public static void Main()
+				{
+					var numbers = new List<int>(new [] {-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6,7,8});
+			
+					var negativeNumbersFilter = new Func<int,bool>(x=> x < 0);
+			
+					var negativeNumbers = numbers.Where(negativeNumbersFilter);
+			
+					var negativeNumbersAggregated = negativeNumbers.Aggregate<int>((agg, n)=> agg += n);
+			
+					Console.WriteLine(negativeNumbersAggregated);
+					
+				}
+			}
+	\end{lstlisting}
+
 
 
 \section{Classes}
@@ -201,14 +241,19 @@
 	\subsection{IEnumerable}
 		\subsubsection {yield}
 
-
-\section{Generics}
-
 \section{Unmanaged Resources}
 
 \section{LINQ}
 
 \section{Error Handling}
+	\subsection{Syntax}  C\# uses the try/catch/finally pattern.
+		\begin{lstlisting}
+			try{}
+			catch (Exception Variable){}
+			finally{}
+		\end{lstlisting}
+	Both {\bf catch} and {\bf finally} are optional, but one of them must exist.  The {\bf finally} block will always execute, even if there is an exception in the {\bf try} block, and if there is no {\bf catch} block, the exception will be thrown once the {\bf finally} block finishes executing.  The {\bf catch} block will only execute if an exception occurs, and the exception will not bubble up the call stack unless rethrown.  
+		
 
 \section{Creating Unit Tests}
 
