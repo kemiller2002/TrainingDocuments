@@ -16,7 +16,7 @@
 \definecolor{commentgreen}{rgb}{0,0.3,0}
 
 \lstdefinelanguage{CSharp}{
-  keywords={try,finally, typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break, int, int?, public, class, string, void, using, static, throw, namespace},
+  keywords={try,finally, typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break, int, int?, public, class, string, void, using, static, throw, namespace, partia, private},
   keywordstyle=\color{blue}\bfseries,
   ndkeywords={class, export, boolean, throw, implements, import, this},
   ndkeywordstyle=\color{darkgray}\bfseries,
@@ -117,7 +117,7 @@
 			What the answer still is: 42
 		\end{verbatim}
 
-		\subsubsection{Nullables} Since Value Types can't be null, Microsoft created nullables to stand in their place when they need to be.  They are represetned by int?, bool?, etc. or Nullable\textless int\textgreater \space etc.  In order to use a Nullable you must check to see if the object has a value becore calling the value.  If not, it automatically throw an exception.
+		\subsubsection{Nullables} Since Value Types can't be null, Microsoft created nullables to stand in their place when they need to be.  They are represetned by {\bf int?}, {\bf bool?}, etc. or {\bf Nullable\textless int\textgreater} \space etc.  In order to use a Nullable you must check to see if the object has a value becore calling the value.  If not, it automatically throw an exception.
 
 		\begin{lstlisting}
 			int? checkValue = null;
@@ -173,10 +173,9 @@
 			
 		}
 	\end{lstlisting}
-
+	Console Output: 
 	\begin{verbatim}Number of numbers: 3\end{verbatim}
-
-\section{Functions}
+\section{Variables}
 	\subsection{Access Modifiers}
 		\begin{itemize}
 			\item public 		//Everything can access
@@ -184,6 +183,34 @@
 			\item protected	//Child objects can access; can be used with internal
 			\item private		//Objects within the same class can access
 		\end{itemize}
+	\subsection{Declaring}  All variables may take the following form
+		\begin{verbatim}
+			<Access-Modifier> <Type> <Variable-Name>;
+
+ 			Declaring and Instantiating
+
+			<Access-Modifier> <Type> <Variable-Name> = <object>;
+		\end{verbatim}
+		Any variable not explicity given an access modifier will default to private. 
+		\begin{lstlisting}
+			String myString; //private;
+			private String  myString; //private;
+			public String myString; //public
+		\end{lstlisting}
+
+	\subsubsection {Declaring Method Variables}
+		Variables defined in a method and instantiated may use the {\bf var} keyword instead of explicitly declaring the type.  The {\bf var} keyword is required for use for anonymous types.
+		\begin{lstlisting}
+			String myString = "Beeblebrox for President":
+			//or 
+ 			var myString = "Beeblebrox for President":
+		\end{lstlisting}
+		  
+
+	\subsection {Scope}
+	
+\section{Functions}
+
 
 	\subsection{Static}  Static allows methods and functions to exist outsite of an object context . They are attached to a class, and may not interact with instance variables and methods outside of its scope.  
 		\begin{lstlisting}
@@ -212,7 +239,7 @@
 		\subsection{Syntax}  Generics are specified by the {\bf \textless T\textgreater} next to a type.  For example to create a List of Int: {\bf List\textless int\textgreater}.  
 
 
-	\section{Lambda Expressions}  These are a shorthand syntax for creating an anonymous function.  When declared in conjuction with use in a function that accepts a function as a parameter (delegate), the compiler will automatically infer the correct types. 
+	\section{Lambda Expressions}  These are a shorthand syntax for creating an anonymous function.  When declared in a calling function accepting it as a parameter(delegate), the compiler will automatically infer the correct types. 
 		\begin{lstlisting}
 			using System;
 			using System.Collections.Generic;
@@ -284,10 +311,96 @@
 \section{Classes}
 	\subsection{Basic Definition}
 	\subsection{Inheritance}
-		\subsubsection{Abstract}
-		\subsubsection{Virtual}
+		\subsubsection{Virtual and Override}  The virtual keyword indicates that a child class may override a method or property, and that the overridden code will apply when calling methods and properties defined in the parent class. 
+			\begin{lstlisting}
+			using System;
+								
+			public class Program
+			{
+				public static void Main()
+				{
+					Parent obj = new Child ();
+					
+					obj.WriteOut();
+				}
+			}
+
+			public class Parent 
+			{
+				public virtual string SaySomething()
+				{
+					return "I am the parent";		
+				}
+				
+				public void WriteOut () 
+				{
+					Console.WriteLine (SaySomething());	
+				}
+			}
+
+			public class Child : Parent
+			{
+				public override string SaySomething()
+				{
+					return "I am the child.";		
+				}
+			}
+			\end{lstlisting}
+		Console Output:
+		\begin{verbatim}I am the child.\end{verbatim}
+
+		\subsubsection{New}  With methods and classes, the new keyword completely replaces a particular method or property in the current class and all children.  The parent classes will still have their original ones called as designed. 
+
+			\begin{lstlisting}
+			using System;
+								
+			public class Program
+			{
+				public static void Main()
+				{
+					Child obj = new Child ();
+					
+					obj.WriteOut();
+				}
+			}
+
+
+			public class Parent 
+			{
+				public string SaySomething()
+				{
+					return "I am the parent";		
+				}
+				
+				public virtual void WriteOut () 
+				{
+					Console.WriteLine (SaySomething());	
+				}
+			}
+
+
+			public class Child : Parent
+			{
+				public new int SaySomething()
+				{
+					return 42;		
+				}
+			}
+			\end{lstlisting}
+		Console Output: 
+		\begin{verbatim}I am the parent\end{verbatim}
+
+		\subsubsection{Abstract}  Classes marked as abstract may not be instantiated.  In order to be used, they must have a child inherit from them.  Methods marked as abstract must be overridden in a child class. 
+		\subsubsection{Sealed} Sealed classes may not be inherited from.  
+
 	\subsection{Polymorphism}
 		\subsubsection{Method Overloading}
+	\subsection{Partial Classes}  Classes can span code files provided that all the files are located in the same assembly.  You can have a class span files by declaring the class {\bf partial}.  At compile time, the compiler will find and assemble all the partial classes into one.  There is no runtime difference between a partial and a non-partial class. 
+		\begin{lstlisting}
+			public partial class MyClassPart
+			{
+			}
+		\end{lstlisting}
 \section{Structs}
 	\subsection{Basic Definition}
 	
@@ -303,8 +416,26 @@
 		\end{lstlisting}
 
 	\subsection {Using}
-		\subsubsection {Importing}  In order to use an object in C\#.NET, either the object must be referred to by its full name (example String is System.String), or the namespace must be imported with the {\bf using} keyword.  
-		
+		\subsubsection {Importing}  In order to use an object in C\#.NET, either the object must be referred to by its full name (example String is System.String), or the namespace must be imported with the {\bf using} keyword.  Unlike Java, there is no * modifer which will import the children from the namespace.  Each one must be imported individually. 
+		\begin{lstlisting}
+			using System;
+			using System.Collections;
+		\end{lstlisting}
+
+		\subsubsection {Aliasing} If there are two objects which have the same name, and both namespaces have been imported into the code file, a namespace conflict will occur.  Each class can be referenced by its full name, \emph{namespace.type} or an aliase can be delcared renaming one of the objects to something else in that code file.  
+		\begin{lstlisting}
+			using System;
+			using Pan;
+			using PanException = Pan.Exception
+
+			namespace Pan
+			{
+				public class Exception
+				{
+	
+				}
+			}
+		\end{lstlisting}
 
 \section{Interfaces}
 	\subsection{Syntax} The basic syntax is as follows: 
@@ -354,7 +485,7 @@
 				public static void Main()
 				{
 					foreach(var p in GetPrimeNumbers(5)){
-						Console.WriteLine(p);	
+						Console.WriteLine("Prime Number Found: " + p);	
 					}
 				}
 				
@@ -389,12 +520,13 @@
 			}
 
 		\end{lstlisting}
+	Console Output: 
 		\begin{verbatim}
-			2
-			3
-			5
-			7
-			11
+			Prime Number Found: 2
+			Prime Number Found: 3
+			Prime Number Found: 5
+			Prime Number Found: 7
+			Prime Number Found: 11
 		\end{verbatim}
 
 \section{Unmanaged Resources}
