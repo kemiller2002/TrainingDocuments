@@ -16,7 +16,7 @@
 
 
 \lstdefinelanguage{CSharp}{
-  keywords={try,finally, typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break, int, int?, public, class, string, void, using},
+  keywords={try,finally, typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break, int, int?, public, class, string, void, using, static},
   keywordstyle=\color{blue}\bfseries,
   ndkeywords={class, export, boolean, throw, implements, import, this},
   ndkeywordstyle=\color{darkgray}\bfseries,
@@ -57,6 +57,8 @@
 \section{Setup}
 	\subsection{LINQPad}
 		\url{http://www.linqpad.net/}
+	\subsection{Dot Net Fiddle}
+		\url{https://dotnetfiddle.net/}
 
 \section{Data Types}
 	\subsection{Value Types}  These are the default value types. 
@@ -77,19 +79,46 @@
 			\item \emph{ulong}
 			\item \emph{ushort}*
 		\end{itemize}
-		Anything else that is classified as a struct is also a value type. \vspace{.5cm}  Value types are not pass by reference in C\#.  When passed into a method, they will be copied for use in the method.  Altering their value inside a method will not change the value passed in.
-
-		\begin{lstlisting}
-
-			
-
-
-		\end{lstlisting}  
+		Anything else that is classified as a struct is also a value type. \linebreak
 
 		\emph{*These types are not CLS compliant, and may cause interoperability issue with other languages.  Unless there is a solid reason, they should avoid being used.} 
 
+		\subsection{Pass By Value}  Value types are not pass by reference in C\#. When passed into a method, they will be copied for use in the method.  Altering their value inside a method will not change the value passed in.
 
-		\subsubsection{Nullables} Since Value Types can't be null, Microsoft created nullables to stand in their place when they need to be.  They are represetned by int?, bool?, etc. or Nullable(int) etc.  In order to use a Nullable you must check to see if the object has a value becore calling the value.  If not, it automatically throw an exception.
+		\begin{lstlisting}
+
+			using System;
+								
+			public class Program
+			{
+				public static void Main()
+				{
+					var theAnswer = 42;
+
+					Console.WriteLine("What the answer is: " + theAnswer);
+					
+					CantChangeTheAnswer(theAnswer);
+					
+					Console.WriteLine("What the answer still is: " + theAnswer);
+				}
+				
+				
+				public static void CantChangeTheAnswer(int theAnswer)
+				{
+					theAnswer = -1;
+					
+					Console.WriteLine("Inside the method: " + theAnswer);
+				}
+			}
+		\end{lstlisting}  
+
+		\begin{verbatim}
+			What the answer is: 42
+			Inside the method: -1
+			What the answer still is: 42
+		\end{verbatim}
+
+		\subsubsection{Nullables} Since Value Types can't be null, Microsoft created nullables to stand in their place when they need to be.  They are represetned by int?, bool?, etc. or Nullable\textless int\textgreater \space etc.  In order to use a Nullable you must check to see if the object has a value becore calling the value.  If not, it automatically throw an exception.
 
 		\begin{lstlisting}
 			int? checkValue = null;
@@ -105,7 +134,48 @@
 
 	\subsection{Reference Types}  Classes instantiate objects, and all objects are references types.  Everything can convert to type Object.  All reference types are pass by reference into functions.  Take the following example: 
 
-	\subsection{Readonly Property}
+	\subsection{Readonly Property}  Class level variables (there are no global variables in C \# although class level variables are commonly referred to as such) may be marked as {\bf readonly}.  Once instantiated, the value is bound to that variable and connot be changed.  Any varaible or property defined as readonly must either be defined on initialization or in the class' constructor.
+\newline
+
+{\bf NOTE:} Properites inside the bound object may still be changed, even though the variable is set to {\bf readonly}.  For example: 
+
+	\begin{lstlisting}
+		using System;
+		using System.Collections.Generic;
+
+							
+		public class Program
+		{
+
+			public static void Main()
+			{
+				var p = new Program();
+				p.PutNumbersIn();
+				
+				Console.WriteLine("Number of numbers: " + p.Numbers.Count);
+			}
+
+			
+				
+			public readonly List<int> Numbers; 
+
+
+			public Program () 
+			{
+				Numbers = new List<int>();	
+			}
+
+			public void PutNumbersIn () 
+			{
+				Numbers.Add(1);
+				Numbers.Add(2);
+				Numbers.Add(3);
+			}
+			
+		}
+	\end{lstlisting}
+
+	\begin{verbatim}Number of numbers: 3\end{verbatim}
 
 \section{Functions}
 	\subsection{Access Modifiers}
@@ -237,9 +307,85 @@
 
 				     <Return-Type> <Variable-Name>;
 			}
+		\end{verbatim} 
+	\subsection{Example}  The following shows and interface and class implementation.  All methods and properties in an interface must be public. 
+
+	\begin{lstlisting}
+		public interface INumbers
+		{
+			int Add(int numberOne, int numberTwo);
+
+			int Subtract(int numberOne, int numberTwo);
+		}
+
+		public class Number : INumbers
+		{
+			int Add(int numberOne, int numberTwo){return numberOne + numberTwo;}
+
+			int Subtract(int numberOne, int numberTwo){return numberOne - numberTwo;}
+		}
+
+	\end{lstlisting}
+
+
+	\subsection{IEnumerable\textless T\textgreater}  Almost everything in .NET which has a collection that can be iteterated over implements {\bf IEnumerable\textless T\textgreater}.  If a method returns a collection or accepts one and the intention is not to modifiy them, {\bf IEnumerable\textless T\textgreater} should be the type.  Qualifying the type to be something concrete like {\bf List\textless T\textgreater} forces the collection to initialize into an object and hold it in memory.  {\bf IEnumerable\textless T\textgreater} forces only the current item in the iteration to exist in memory thereby reducing load on the system.  
+
+
+
+		\subsubsection {yield}  This allows enumerations to be created only the fly, and continue creation until the end condition is satisfied.
+
+		\begin{lstlisting}
+			using System;
+			using System.Collections.Generic;
+			using System.Linq;
+
+			public class Program
+			{
+				public static void Main()
+				{
+					foreach(var p in GetPrimeNumbers(5)){
+						Console.WriteLine(p);	
+					}
+				}
+				
+				
+				public static IEnumerable<int> GetPrimeNumbers (int numberToGet)
+				{
+					var count = 0;
+					var currentNumber = 2;
+					var primes = new List<int> (numberToGet); 
+
+					var isPrime = new Func<int,bool> (numberToCheck => {
+						var stoppingPoint = (int) Math.Sqrt(numberToCheck);
+						return !primes
+							.Where(y => y <= stoppingPoint)
+							.Any(y => numberToCheck % y == 0);}
+						); 		
+					
+					
+					while(count < numberToGet)
+					{
+						if(isPrime(currentNumber))
+						{
+							yield return currentNumber;
+							primes.Add(currentNumber);
+							count ++;		   
+						}
+						
+						currentNumber ++;
+					}
+				}
+				
+			}
+
+		\end{lstlisting}
+		\begin{verbatim}
+			2
+			3
+			5
+			7
+			11
 		\end{verbatim}
-	\subsection{IEnumerable}
-		\subsubsection {yield}
 
 \section{Unmanaged Resources}
 
