@@ -3,29 +3,36 @@
 \BOOKMARK [2][-]{subsection.2.1}{2.1. JsLint}{section.2}% 3
 \BOOKMARK [2][-]{subsection.2.2}{2.2. Brackets}{section.2}% 4
 \BOOKMARK [1][-]{section.3}{3. Functions}{}% 5
-\BOOKMARK [1][-]{section.4}{4. Statement Endings}{}% 6
-\BOOKMARK [2][-]{subsection.4.1}{4.1. Semicolons}{section.4}% 7
-\BOOKMARK [2][-]{subsection.4.2}{4.2. Carriage Return}{section.4}% 8
-\BOOKMARK [1][-]{section.5}{5. Operators}{}% 9
-\BOOKMARK [2][-]{subsection.5.1}{5.1. === and !==}{section.5}% 10
-\BOOKMARK [2][-]{subsection.5.2}{5.2. == and !=}{section.5}% 11
-\BOOKMARK [1][-]{section.6}{6. Variables}{}% 12
-\BOOKMARK [2][-]{subsection.6.1}{6.1. Hoisting}{section.6}% 13
-\BOOKMARK [1][-]{section.7}{7. Functions}{}% 14
-\BOOKMARK [1][-]{section.8}{8. Primitive Types}{}% 15
-\BOOKMARK [2][-]{subsection.8.1}{8.1. Strings}{section.8}% 16
-\BOOKMARK [2][-]{subsection.8.2}{8.2. Numbers}{section.8}% 17
-\BOOKMARK [2][-]{subsection.8.3}{8.3. undefined}{section.8}% 18
-\BOOKMARK [2][-]{subsection.8.4}{8.4. null}{section.8}% 19
-\BOOKMARK [1][-]{section.9}{9. Objects}{}% 20
-\BOOKMARK [2][-]{subsection.9.1}{9.1. Reference Types}{section.9}% 21
-\BOOKMARK [2][-]{subsection.9.2}{9.2. Creating an Object}{section.9}% 22
-\BOOKMARK [2][-]{subsection.9.3}{9.3. Arrays}{section.9}% 23
-\BOOKMARK [1][-]{section.10}{10. Script Block}{}% 24
-\BOOKMARK [1][-]{section.11}{11. Error Handling}{}% 25
-\BOOKMARK [1][-]{section.12}{12. JSON : JavaScript Object Notation}{}% 26
-\BOOKMARK [2][-]{subsection.12.1}{12.1. Basic Example}{section.12}% 27
-\BOOKMARK [2][-]{subsection.12.2}{12.2. Helpful Links}{section.12}% 28
-\BOOKMARK [1][-]{section.13}{13. Frameworks}{}% 29
-\BOOKMARK [2][-]{subsection.13.1}{13.1. JQuery}{section.13}% 30
-\BOOKMARK [2][-]{subsection.13.2}{13.2. Underscore}{section.13}% 31
+\BOOKMARK [2][-]{subsection.3.1}{3.1. Functions First Class Objects}{section.3}% 6
+\BOOKMARK [1][-]{section.4}{4. Statement Endings}{}% 7
+\BOOKMARK [2][-]{subsection.4.1}{4.1. Semicolons}{section.4}% 8
+\BOOKMARK [2][-]{subsection.4.2}{4.2. Carriage Return}{section.4}% 9
+\BOOKMARK [1][-]{section.5}{5. Operators}{}% 10
+\BOOKMARK [2][-]{subsection.5.1}{5.1. === and !==}{section.5}% 11
+\BOOKMARK [2][-]{subsection.5.2}{5.2. == and !=}{section.5}% 12
+\BOOKMARK [1][-]{section.6}{6. Variables}{}% 13
+\BOOKMARK [2][-]{subsection.6.1}{6.1. Hoisting}{section.6}% 14
+\BOOKMARK [1][-]{section.7}{7. Functions}{}% 15
+\BOOKMARK [2][-]{subsection.7.1}{7.1. Variable Length Arguments}{section.7}% 16
+\BOOKMARK [1][-]{section.8}{8. Primitive Types}{}% 17
+\BOOKMARK [2][-]{subsection.8.1}{8.1. Strings}{section.8}% 18
+\BOOKMARK [2][-]{subsection.8.2}{8.2. Numbers}{section.8}% 19
+\BOOKMARK [2][-]{subsection.8.3}{8.3. undefined}{section.8}% 20
+\BOOKMARK [2][-]{subsection.8.4}{8.4. null}{section.8}% 21
+\BOOKMARK [1][-]{section.9}{9. Objects}{}% 22
+\BOOKMARK [2][-]{subsection.9.1}{9.1. Reference Types}{section.9}% 23
+\BOOKMARK [2][-]{subsection.9.2}{9.2. Creating an Object}{section.9}% 24
+\BOOKMARK [2][-]{subsection.9.3}{9.3. Arrays}{section.9}% 25
+\BOOKMARK [1][-]{section.10}{10. Script Block}{}% 26
+\BOOKMARK [1][-]{section.11}{11. Error Handling}{}% 27
+\BOOKMARK [2][-]{subsection.11.1}{11.1. Try/Catch}{section.11}% 28
+\BOOKMARK [1][-]{section.12}{12. JSON : JavaScript Object Notation}{}% 29
+\BOOKMARK [2][-]{subsection.12.1}{12.1. Basic Example}{section.12}% 30
+\BOOKMARK [2][-]{subsection.12.2}{12.2. Helpful Links}{section.12}% 31
+\BOOKMARK [1][-]{section.13}{13. Frameworks}{}% 32
+\BOOKMARK [2][-]{subsection.13.1}{13.1. JQuery}{section.13}% 33
+\BOOKMARK [2][-]{subsection.13.2}{13.2. Underscore}{section.13}% 34
+\BOOKMARK [1][-]{section.14}{14. Things not to do}{}% 35
+\BOOKMARK [2][-]{subsection.14.1}{14.1. eval}{section.14}% 36
+\BOOKMARK [2][-]{subsection.14.2}{14.2. with}{section.14}% 37
+\BOOKMARK [2][-]{subsection.14.3}{14.3. Bitwise Operators}{section.14}% 38

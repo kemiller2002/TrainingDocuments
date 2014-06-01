@@ -12,7 +12,7 @@
 \definecolor{purple}{rgb}{0.65, 0.12, 0.82}
 
 \lstdefinelanguage{JavaScript}{
-  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break, try},
   keywordstyle=\color{blue}\bfseries,
   ndkeywords={class, export, boolean, throw, implements, import, this},
   ndkeywordstyle=\color{darkgray}\bfseries,
@@ -56,7 +56,7 @@
 \begin{itemize}
 	\item Created at Netscape
 	\item Originally written in 1995 by Brandon Eich
-	\item Called JavaScript to entice Java developers to try it
+	\item Called JavaScript to entice Java developers to try it.  (It's more like LISP than C.  Don't be fooled.);
 	\item Microsoft reverse engineered the language for integration into Internet Explorertext
 	\item Become ECMA Script in 1997 and is when Netscape lost control. 
 \end{itemize}
@@ -103,6 +103,10 @@
 
 	They both create usable functions, but the first has interpreter validation points built in.  With the second example, JavaScript code cannot call a function assigned to a variable until the variable has been instantiated and assigned the function.  
 It must precede any code calling it.  In the first approach, it can exist anywhere in the program.  JavaScript will parse all programs and load the functions into memory before running code.  
+
+	\subsection{Functions First Class Objects}  Functions are objects.  This means that you can return them from functions, and pass them into other functions as arguments.
+
+		\includegraphics{FunctionAsArgumentsBadTime.jpg}
 
 
 \section{Statement Endings}
@@ -228,6 +232,9 @@ Really becomes:
 		\item var foo = function () /{/}
 		\item function () /{/} //anonymous
 	\end{itemize}
+	\subsection{Variable Length Arguments}  When calling a function, the number of supplied arguments is not enforced.  Missing ones come in as {\bf undefined} and additional ones can be accessed through the {\bf arguments} object. 
+
+	\includegraphics{MoreArgumentsThanSpecified.jpg}
 
 
 \section{Primitive Types}
@@ -249,6 +256,15 @@ Really becomes:
 
 			\end{tabular}
 			\end{center}
+	\subsubsection{Creating an Array}  This is a very fast and convenient way of creating an array.  
+		\begin{lstlisting}
+			var countries = "U.S.A,Canada,Mexico".split(',');
+		\end{lstlisting}
+		\begin{itemize}
+			\item Less typing.
+			\item Less code to screw up.
+			\item Easier for other coders to read.
+		\end{itemize}
 \subsection{Numbers}
 	All numbers in JavaScript are 64-bit floating point numbers.  There is no such concept as integer division.  So :  "13 / 3" does not equal 4 but 4.333.... instead.
 
@@ -273,7 +289,18 @@ Really becomes:
 		\begin{itemize}
 			\item Literal Notation: var o = \{\};
 			\item Function: var o = new Object();
-		\end{itemize}		
+		\end{itemize}
+		\subsubsection{Constructors} Constuctors are functions with the {\bf new} keyword in front of them.  The {\bf new} operator binds the objesct's prototype to the functions prototype member and bings the object to {\bf this}, instead of binding {\bf this} to the global object.  Common convention is that functions which are to be used as constructors are Pascal Case (First word of each letter is uppercase).  
+
+			\begin{lstlisting}
+				function MyNewObject () {
+					this.SayHello = function () {
+						alert("Hello");
+					};
+					
+					this.PublicProperty = "I am a public property";
+				}
+			\end{lstlisting}
 
 	\subsection{Arrays}
 		\subsubsection {Creating an Array}
@@ -281,6 +308,7 @@ Really becomes:
 				\item Literal Notation: var arr = [];
 				\item Function: var o = new Array();
 			\end{itemize}
+		Use the literal notation.  There is no benfit to doing {\bf new Array();}.  It just uses extra characters. 
 	
 	
 \section{Script Block}
@@ -307,7 +335,15 @@ Really becomes:
 \url{http://jsfiddle.net/X3VdC/1/}
 
 \section{Error Handling}
+	\subsection{Try/Catch}   Syntax: 
+		\begin{lstlisting}
+			try{
 
+			}
+			catch(e){
+				\\do stuff with e.		
+			}
+		\end{lstlisting}
 
 \section{JSON : JavaScript Object Notation}
 
@@ -335,4 +371,8 @@ Really becomes:
 	\subsection{Underscore}
 		\url{http://underscorejs.org/}
 
+\section{Things not to do}
+	\subsection{eval}  Almost anything that can be done with {bf eval} can be done without it.  Don't use it.  It's slow and causes a security issue. 
+	\subsection{with}  Don't use it.  Just write it out.  It can become confusing, and execution can vary depending browser and where in the program it executes.
+	\subsection{Bitwise Operators}  JavaScript doesn't have an integer value.  To use these, it has to convert them internall to an integer, do the operation, and then convert them back. 
 \end{document}
