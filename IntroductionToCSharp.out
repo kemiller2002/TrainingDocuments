@@ -10,32 +10,33 @@
 \BOOKMARK [2][-]{subsection.3.1}{3.1. Access Modifiers}{section.3}% 10
 \BOOKMARK [2][-]{subsection.3.2}{3.2. Declaring}{section.3}% 11
 \BOOKMARK [2][-]{subsection.3.3}{3.3. Scope}{section.3}% 12
-\BOOKMARK [1][-]{section.4}{4. Functions}{}% 13
-\BOOKMARK [2][-]{subsection.4.1}{4.1. Static}{section.4}% 14
-\BOOKMARK [1][-]{section.5}{5. Generics}{}% 15
-\BOOKMARK [2][-]{subsection.5.1}{5.1. Use}{section.5}% 16
-\BOOKMARK [2][-]{subsection.5.2}{5.2. Syntax}{section.5}% 17
-\BOOKMARK [1][-]{section.6}{6. Lambda Expressions}{}% 18
-\BOOKMARK [2][-]{subsection.6.1}{6.1. Func<T>, Action<T>, and Predicate<T, bool>}{section.6}% 19
-\BOOKMARK [1][-]{section.7}{7. Classes}{}% 20
-\BOOKMARK [2][-]{subsection.7.1}{7.1. Basic Definition}{section.7}% 21
-\BOOKMARK [2][-]{subsection.7.2}{7.2. Inheritance}{section.7}% 22
-\BOOKMARK [2][-]{subsection.7.3}{7.3. Polymorphism}{section.7}% 23
-\BOOKMARK [2][-]{subsection.7.4}{7.4. Partial Classes}{section.7}% 24
-\BOOKMARK [1][-]{section.8}{8. Structs}{}% 25
-\BOOKMARK [2][-]{subsection.8.1}{8.1. Basic Definition}{section.8}% 26
-\BOOKMARK [1][-]{section.9}{9. Namespaces}{}% 27
-\BOOKMARK [2][-]{subsection.9.1}{9.1. Description}{section.9}% 28
-\BOOKMARK [2][-]{subsection.9.2}{9.2. Using}{section.9}% 29
-\BOOKMARK [1][-]{section.10}{10. Interfaces}{}% 30
-\BOOKMARK [2][-]{subsection.10.1}{10.1. Syntax}{section.10}% 31
-\BOOKMARK [2][-]{subsection.10.2}{10.2. Example}{section.10}% 32
-\BOOKMARK [2][-]{subsection.10.3}{10.3. IEnumerable<T>}{section.10}% 33
-\BOOKMARK [1][-]{section.11}{11. Garbage Collection}{}% 34
-\BOOKMARK [2][-]{subsection.11.1}{11.1. Managed Resources}{section.11}% 35
-\BOOKMARK [2][-]{subsection.11.2}{11.2. Unmanaged Resources}{section.11}% 36
-\BOOKMARK [1][-]{section.12}{12. LINQ}{}% 37
-\BOOKMARK [1][-]{section.13}{13. Error Handling}{}% 38
-\BOOKMARK [2][-]{subsection.13.1}{13.1. Syntax}{section.13}% 39
-\BOOKMARK [2][-]{subsection.13.2}{13.2. Throw}{section.13}% 40
-\BOOKMARK [1][-]{section.14}{14. Creating Unit Tests}{}% 41
+\BOOKMARK [2][-]{subsection.3.4}{3.4. Closure}{section.3}% 13
+\BOOKMARK [1][-]{section.4}{4. Functions}{}% 14
+\BOOKMARK [2][-]{subsection.4.1}{4.1. Static}{section.4}% 15
+\BOOKMARK [1][-]{section.5}{5. Generics}{}% 16
+\BOOKMARK [2][-]{subsection.5.1}{5.1. Use}{section.5}% 17
+\BOOKMARK [2][-]{subsection.5.2}{5.2. Syntax}{section.5}% 18
+\BOOKMARK [1][-]{section.6}{6. Lambda Expressions}{}% 19
+\BOOKMARK [2][-]{subsection.6.1}{6.1. Func<T>, Action<T>, and Predicate<T, bool>}{section.6}% 20
+\BOOKMARK [1][-]{section.7}{7. Classes}{}% 21
+\BOOKMARK [2][-]{subsection.7.1}{7.1. Basic Definition}{section.7}% 22
+\BOOKMARK [2][-]{subsection.7.2}{7.2. Inheritance}{section.7}% 23
+\BOOKMARK [2][-]{subsection.7.3}{7.3. Polymorphism}{section.7}% 24
+\BOOKMARK [2][-]{subsection.7.4}{7.4. Partial Classes}{section.7}% 25
+\BOOKMARK [1][-]{section.8}{8. Structs}{}% 26
+\BOOKMARK [2][-]{subsection.8.1}{8.1. Basic Definition}{section.8}% 27
+\BOOKMARK [1][-]{section.9}{9. Namespaces}{}% 28
+\BOOKMARK [2][-]{subsection.9.1}{9.1. Description}{section.9}% 29
+\BOOKMARK [2][-]{subsection.9.2}{9.2. Using}{section.9}% 30
+\BOOKMARK [1][-]{section.10}{10. Interfaces}{}% 31
+\BOOKMARK [2][-]{subsection.10.1}{10.1. Syntax}{section.10}% 32
+\BOOKMARK [2][-]{subsection.10.2}{10.2. Example}{section.10}% 33
+\BOOKMARK [2][-]{subsection.10.3}{10.3. IEnumerable<T>}{section.10}% 34
+\BOOKMARK [1][-]{section.11}{11. Garbage Collection}{}% 35
+\BOOKMARK [2][-]{subsection.11.1}{11.1. Managed Resources}{section.11}% 36
+\BOOKMARK [2][-]{subsection.11.2}{11.2. Unmanaged Resources}{section.11}% 37
+\BOOKMARK [1][-]{section.12}{12. LINQ}{}% 38
+\BOOKMARK [1][-]{section.13}{13. Error Handling}{}% 39
+\BOOKMARK [2][-]{subsection.13.1}{13.1. Syntax}{section.13}% 40
+\BOOKMARK [2][-]{subsection.13.2}{13.2. Throw}{section.13}% 41
+\BOOKMARK [1][-]{section.14}{14. Creating Unit Tests}{}% 42

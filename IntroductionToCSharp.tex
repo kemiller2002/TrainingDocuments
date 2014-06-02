@@ -119,7 +119,7 @@
 		\end{verbatim}
 
 
-		\subsubsection{Nullables} Since Value Types can't be null, Microsoft created nullables to stand in their place when they need to be.  They are represetned by {\bf int?}, {\bf bool?}, etc. or {\bf Nullable\textless int\textgreater} \space etc.  In order to use a Nullable you must check to see if the object has a value becore calling the value.  If not, it automatically throw an exception.
+		\subsubsection{Nullables} Since value types can't be null, Microsoft created nullables to stand in their place when they need to be.  They are represetned by {\bf int?}, {\bf bool?}, etc. or {\bf Nullable\textless int\textgreater} \space etc.  In order to use a Nullable you must check to see if the object has a value becore calling the value.  If not, it automatically throw an exception.
 
 		\begin{lstlisting}
 			int? checkValue = null;
@@ -133,7 +133,37 @@
 			}
 		\end{lstlisting}
 
-	\subsection{Reference Types}  Classes instantiate objects, and all objects are references types.  Everything can convert to type Object.  All reference types are pass by reference into functions.  Take the following example: 
+	\subsection{Reference Types}  Classes instantiate objects, and all objects are references types.  All reference types inherit from type {\bf System.Object}.  All reference types are pass by reference into functions.  Take the following example: 
+		\begin{lstlisting}
+			using System;
+								
+			public class Program
+			{
+				public static void Main()
+				{
+					var species = new IntelligentSpecies();
+					
+					CorrectTheMostIntelligentSpecies(species);
+					
+					Console.WriteLine(species.MostIntelligentBeings);
+				}
+				
+				
+				public static void CorrectTheMostIntelligentSpecies (IntelligentSpecies species)
+				{
+					species.MostIntelligentBeings = "White Mice and Dolphins";
+				}
+				
+			}
+
+			public class IntelligentSpecies 
+			{
+				public String MostIntelligentBeings  = "Humans" ;
+			}
+		\end{lstlisting}
+		Console Output: 
+		\begin{verbatim}White Mice and Dolphins\end{verbatim}
+
 
 	\subsection{Readonly Property}  Class level variables (there are no global variables in C \# although class level variables are commonly referred to as such) may be marked as {\bf readonly}.  Once instantiated, the value is bound to that variable and connot be changed.  Any varaible or property defined as readonly must either be defined on initialization or in the class' constructor.
 \linebreak
@@ -209,7 +239,55 @@
 		\end{lstlisting}
 		  
 
-	\subsection {Scope}
+	\subsection {Scope}  In C\# variable scope is controlled at the branch level.  Variables declared inside a conditional branch will only be accessable there. 
+		\subsection {Closure} Methods which have Lamda Expression or Delegates can have their variables access through closure.
+			\begin{lstlisting}
+			using System;
+			using System.Linq;
+
+			public class Program
+			{
+				public static void Main()
+				{
+
+					var counterFunc = GetNumberCounter() ;
+
+					Console.WriteLine(counterFunc());
+					Console.WriteLine(counterFunc());
+					Console.WriteLine(counterFunc());
+					
+					Console.WriteLine("");
+					
+					var newCounterFunc = GetNumberCounter();
+					
+					Console.WriteLine(newCounterFunc());
+					Console.WriteLine(newCounterFunc());
+					Console.WriteLine(newCounterFunc());
+				}
+				
+				public static Func<int> GetNumberCounter () 
+				{
+					
+					var counter = 0; 
+					
+					return new Func<int> (()=>{
+						counter ++;
+						
+						return counter;
+					});
+				}
+			}
+			\end{lstlisting}
+			Console Output: 
+			\begin{verbatim}
+			1
+			2
+			3
+
+			1
+			2
+			3
+			\end{verbatim}
 	
 \section{Functions}
 
@@ -312,7 +390,7 @@
 
 \section{Classes}
 	\subsection{Basic Definition}
-	\subsection{Inheritance}  C\# allows single inheritance for classes but not structs.  
+	\subsection{Inheritance}  C\# allows single inheritance for classes.  
 		\subsubsection{Virtual and Override}  The virtual keyword indicates that a child class may override a method or property, and that the overridden code will apply when calling methods and properties defined in the parent class. 
 			\begin{lstlisting}
 			using System;
