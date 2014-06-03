@@ -111,7 +111,7 @@
 				}
 			}
 		\end{lstlisting}  
-		Conwole Output:
+		Console Output:
 		\begin{verbatim}
 			What the answer is: 42
 			Inside the method: -1
@@ -119,7 +119,7 @@
 		\end{verbatim}
 
 
-		\subsubsection{Nullables} Since value types can't be null, Microsoft created nullables to stand in their place when they need to be.  They are represetned by {\bf int?}, {\bf bool?}, etc. or {\bf Nullable\textless int\textgreater} \space etc.  In order to use a Nullable you must check to see if the object has a value becore calling the value.  If not, it automatically throw an exception.
+		\subsubsection{Nullables} Since value types can't be null, Microsoft created nullables to stand in their place when they need to be.  They are represented by {\bf int?}, {\bf bool?}, etc. or {\bf Nullable\textless int\textgreater} \space etc.  In order to use a Nullable you must check to see if the object has a value before calling the value.  If not, it automatically throw an exception.
 
 		\begin{lstlisting}
 			int? checkValue = null;
@@ -165,10 +165,10 @@
 		\begin{verbatim}White Mice and Dolphins\end{verbatim}
 
 
-	\subsection{Readonly Property}  Class level variables (there are no global variables in C \# although class level variables are commonly referred to as such) may be marked as {\bf readonly}.  Once instantiated, the value is bound to that variable and connot be changed.  Any varaible or property defined as readonly must either be defined on initialization or in the class' constructor.
+	\subsection{Readonly Property}  Class level variables (there are no global variables in C \# although class level variables are commonly referred to as such) may be marked as {\bf readonly}.  Once instantiated, the value is bound to that variable and cannot be changed.  Any variable or property defined as readonly must either be defined on initialization or in the class' constructor.
 \linebreak
 
-{\bf NOTE:} Properites inside the bound object may still be changed, even though the variable is set to {\bf readonly}.  For example: 
+{\bf NOTE:} Properties inside the bound object may still be changed, even though the variable is set to {\bf readonly}.  For example: 
 
 	\begin{lstlisting}
 		using System;
@@ -223,7 +223,7 @@
 
 			<Access-Modifier> <Type> <Variable-Name> = <object>;
 		\end{verbatim}
-		Any variable not explicity given an access modifier will default to private. 
+		Any variable not explicitly given an access modifier will default to private. 
 		\begin{lstlisting}
 			String myString; //private;
 			private String  myString; //private;
@@ -239,8 +239,8 @@
 		\end{lstlisting}
 		  
 
-	\subsection {Scope}  In C\# variable scope is controlled at the branch level.  Variables declared inside a conditional branch will only be accessable there. 
-		\subsection {Closure} Methods which have Lamda Expression or Delegates can have their variables access through closure.
+	\subsection {Scope}  In C\# variable scope is controlled at the branch level.  Variables declared inside a conditional branch will only be accessible there. 
+		\subsection {Closure} Methods which have Lambda Expression or Delegates can have their variables access through closure.
 			\begin{lstlisting}
 			using System;
 			using System.Linq;
@@ -292,7 +292,7 @@
 \section{Functions}
 
 
-	\subsection{Static}  Static allows methods and functions to exist outsite of an object context . They are attached to a class, and may not interact with instance variables and methods outside of its scope.  
+	\subsection{Static}  Static allows methods and functions to exist outside of an object context . They are attached to a class, and may not interact with instance variables and methods outside of its scope.  
 		\begin{lstlisting}
 		using System;
 
@@ -315,7 +315,7 @@
 		\end{lstlisting}
 
 	\section{Generics}
-		\subsection{Use}  Pre .Net 2.0, there was no real way of sharing methods and properties accross classes which weren't related.  To have similar implementations of the same method, the code had to be duplicated and customized.  For examle, {\bf string[] } and {\bf int[]} are both collections of objects, but they aren't related in terms of inheritance.  It would be beneificial for each to have methods like Sort and Add, but to iimplement them and not break type safety (\url{http://en.wikipedia.org/wiki/Type_safety}) each method would have to implment it's own version, or the method would have to be generalized to take a common base class type such as {\bf System.Object}.  Generics allow classes and structs to have methods and properties which operate on several different types provied that all types which are allowed in the generic satisify the compile time requirements to have those methods and properites interact with them.  
+		\subsection{Use}  Pre .Net 2.0, there was no real way of sharing methods and properties across classes which weren't related.  To have similar implementations of the same method, the code had to be duplicated and customized.  For example, {\bf string[] } and {\bf int[]} are both collections of objects, but they aren't related in terms of inheritance.  It would be beneficial for each to have methods like Sort and Add, but to implement them and not break type safety (\url{http://en.wikipedia.org/wiki/Type_safety}) each method would have to implement it's own version, or the method would have to be generalized to take a common base class type such as {\bf System.Object}.  Generics allow classes and structs to have methods and properties which operate on several different types provided that all types which are allowed in the generic satisfy the compile time requirements to have those methods and properties interact with them.  
 		\subsection{Syntax}  Generics are specified by the {\bf \textless T\textgreater} next to a type.  For example to create a List of Int: {\bf List\textless int\textgreater}.  
 
 
@@ -526,7 +526,7 @@
 	
 
 \section{Namespaces}
-	\subsection{Description} Everything in .NET has a name space.  If no namspace expllicitely named for an object, it is given the global namespace for the program.  Namespaces are used to keep classes with the same name from colliding.  Visual Studio will automatically create namespace for each class based on the application name and the folder structure. 
+	\subsection{Description} Everything in .NET has a name space.  If no namespace explicitly named for an object, it is given the global namespace for the program.  Namespaces are used to keep classes with the same name from colliding.  Visual Studio will automatically create namespace for each class based on the application name and the folder structure. 
 
 		\begin{lstlisting}
 			namespace Pan.TechnicalSolutions.Bonzai
@@ -536,13 +536,13 @@
 		\end{lstlisting}
 
 	\subsection {Using}
-		\subsubsection {Importing}  In order to use an object in C\#.NET, either the object must be referred to by its full name (example String is System.String), or the namespace must be imported with the {\bf using} keyword.  Unlike Java, there is no * modifer which will import the children from the namespace.  Each one must be imported individually. 
+		\subsubsection {Importing}  In order to use an object in C\#.NET, either the object must be referred to by its full name (example String is System.String), or the namespace must be imported with the {\bf using} keyword.  Unlike Java, there is no * modifier which will import the children from the namespace.  Each one must be imported individually. 
 		\begin{lstlisting}
 			using System;
 			using System.Collections;
 		\end{lstlisting}
 
-		\subsubsection {Aliasing} If there are two objects which have the same name, and both namespaces have been imported into the code file, a namespace conflict will occur.  Each class can be referenced by its full name, \emph{namespace.type} or an alias can be delcared renaming one of the objects to something else in that code file.  
+		\subsubsection {Aliasing} If there are two objects which have the same name, and both namespaces have been imported into the code file, a namespace conflict will occur.  Each class can be referenced by its full name, \emph{namespace.type} or an alias can be declared renaming one of the objects to something else in that code file.  
 		\begin{lstlisting}
 			using System;
 			using Pan;
@@ -589,7 +589,7 @@
 	\end{lstlisting}
 
 
-	\subsection{IEnumerable\textless T\textgreater}  Almost everything in .NET which has a collection that can be iteterated over implements {\bf IEnumerable\textless T\textgreater}.  If a method returns a collection or accepts one and the intention is not to modifiy them, {\bf IEnumerable\textless T\textgreater} should be the type.  Qualifying the type to be something concrete like {\bf List\textless T\textgreater} forces the collection to initialize into an object and hold it in memory.  {\bf IEnumerable\textless T\textgreater} forces only the current item in the iteration to exist in memory thereby reducing load on the system.  
+	\subsection{IEnumerable\textless T\textgreater}  Almost everything in .NET which has a collection that can be iterated over implements {\bf IEnumerable\textless T\textgreater}.  If a method returns a collection or accepts one and the intention is not to modify them, {\bf IEnumerable\textless T\textgreater} should be the type.  Qualifying the type to be something concrete like {\bf List\textless T\textgreater} forces the collection to initialize into an object and hold it in memory.  {\bf IEnumerable\textless T\textgreater} forces only the current item in the iteration to exist in memory thereby reducing load on the system.  
 
 
 
@@ -668,9 +668,9 @@
 			catch (Exception Variable){}
 			finally{}
 		\end{lstlisting}
-	Both {\bf catch} and {\bf finally} are optional, but one of them must exist.  The {\bf finally} block will always execute, even if there is an exception in the {\bf try} block, and if there is no {\bf catch} block, the exception will be thrown once the {\bf finally} block finishes executing.  The {\bf catch} block will only execute if an exception occurs, and the exception will not bubble up the call stack unless rethrown.  
+	Both {\bf catch} and {\bf finally} are optional, but one of them must exist.  The {\bf finally} block will always execute, even if there is an exception in the {\bf try} block, and if there is no {\bf catch} block, the exception will be thrown once the {\bf finally} block finishes executing.  The {\bf catch} block will only execute if an exception occurs, and the exception will not bubble up the call stack unless re-thrown.  
 		
-	Multiple catches blocks can exist to catch different types of exceptions.  The listing must go from most specific to most general to catch the diffenerent exception types. 
+	Multiple catches blocks can exist to catch different types of exceptions.  The listing must go from most specific to most general to catch the different exception types. 
 
 	\begin{lstlisting}
 		catch{Exception ex)
@@ -695,14 +695,14 @@
 			//all other exceptions will get caught here.
 		}
 	\end{lstlisting}
-	\subsection{Throw}  In order to rethrow and exception, use the {\bf throw} keyword.  
+	\subsection{Throw}  In order to re-throw and exception, use the {\bf throw} keyword.  
 		\begin{lstlisting}
 			catch(Exception ex)
 			{
 				throw;
 			}
 		\end{lstlisting}
-	{\bf NOTE:} Using {\bf throw ex;} will reset the stack trace, and the original place where the exception ocurred will be lost.
+	{\bf NOTE:} Using {\bf throw ex;} will reset the stack trace, and the original place where the exception occurred will be lost.
 		\begin{lstlisting}
 			catch(Exception ex)
 			{
